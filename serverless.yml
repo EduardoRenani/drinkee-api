@@ -1,0 +1,204 @@
+service:
+  name: drinkee-api  
+  
+plugins:
+  - serverless-webpack
+  - serverless-layers
+provider:
+  name: aws
+  region: 'us-east-1'
+  runtime: nodejs12.x
+  deploymentBucket:
+    name: drinkee-api
+  tracing: true
+  usagePlan:
+    - free:
+      quota:
+        limit: 5000
+        offset: 2
+        period: MONTH
+      throttle:
+        burstLimit: 200
+        rateLimit: 100
+    - internal:
+      quota:
+        limit: 50000
+        offset: 1
+        period: MONTH
+      throttle:
+        burstLimit: 2000
+        rateLimit: 1000
+
+custom:
+  serverless-layers:
+    packageManager: npm
+  stage: ${env:SLS_STAGE, opt:stage, self:provider.stage}
+  table:
+    drinks:  drinks
+
+functions:
+  createDrink:
+    handler: src/handlers/drink/create/createDrink.handler
+    events:
+      - http:
+          method: post
+          path: drink
+          cors: true
+
+resources:
+  Resources:
+    defaultRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: ${self:service}-${self:provider.region}-defaultRole
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: ${self:service}-defaultServerlessPolicy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow # note that these rights are given in the default policy and are required if you want logs out of your lambda(s)
+                  Action:
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource:
+                    - 'Fn::Join':
+                      - ':'
+                      -
+                        - 'arn:aws:logs'
+                        - Ref: 'AWS::Region'
+                        - Ref: 'AWS::AccountId'
+                        - 'log-group:/aws/lambda/*:*:*'
+                - Effect: Allow
+                  Action:
+                    - SNS:Publish
+                  Resource: "*"
+                - Effect: Allow
+                  Action:
+                    - dynamodb:Query
+                    - dynamodb:Scan
+                    - dynamodb:GetItem
+                    - dynamodb:PutItem
+                    - dynamodb:UpdateItem
+                    - dynamodb:DeleteItem
+                    - dynamodb:BatchGetItem
+                    - dynamodb:BatchWriteItem
+                    - dynamodb:DescribeTable
+                  Resource: "*"
+                - Effect: Allow
+                  Action:
+                    - dynamodb:GetRecords
+                    - dynamodb:GetShardIterator
+                    - dynamodb:DescribeStream
+                    - dynamodb:ListStreams
+                  Resource: "*"
+                - Effect: Allow
+                  Action:
+                    - lambda:InvokeFunction
+                    - lambda:InvokeAsync
+                  Resource: "*"
+                - Effect: Allow
+                  Action:
+                    - xray:PutTraceSegments
+                    - xray:PutTelemetryRecords
+                  Resource:
+                    - "*"
+                - Effect: Allow
+                  Action:
+                    - iot:Publish
+                  Resource:
+                    - "*"
+    drinks:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: "drinks"
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: uid
+            AttributeType: S
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: strength
+            AttributeType: N
+          - AttributeName: style
+            AttributeType: S
+          - AttributeName: rating
+            AttributeType: N
+          - AttributeName: baseSpirit
+            AttributeType: S
+          - AttributeName: liquor
+            AttributeType: S
+          - AttributeName: wineVermouth
+            AttributeType: S
+          - AttributeName: mixer
+            AttributeType: S
+        KeySchema:
+          - AttributeName: uid
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST   
+        GlobalSecondaryIndexes:
+          - IndexName: name-rating-index
+            KeySchema:
+              - AttributeName: name
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: style-rating-index
+            KeySchema:
+              - AttributeName: style
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: baseSpirit-rating-index
+            KeySchema:
+              - AttributeName: baseSpirit
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: liquor-rating-index
+            KeySchema:
+              - AttributeName: liquor
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: wineVermouth-rating-index
+            KeySchema:
+              - AttributeName: wineVermouth
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: mixer-rating-index
+            KeySchema:
+              - AttributeName: mixer
+                KeyType: HASH
+              - AttributeName: rating
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: name-strength-index
+            KeySchema:
+              - AttributeName: name
+                KeyType: HASH
+              - AttributeName: strength
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL

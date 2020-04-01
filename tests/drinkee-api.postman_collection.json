@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "ed76a44c-2f48-420c-8ac7-fdf138a04920",
+		"name": "drinkee-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "drink",
+			"item": [
+				{
+					"name": "create",
+					"item": [
+						{
+							"name": "CreateDrink",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Aperol Spritz\",\n\t\"strength\": 0.04,\n\t\"style\": \"classic\",\n\t\"rating\": 4.7,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 25.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"liquor\": \"Aperol\",\n\t\"wineVermouth\": \"Prosecco\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Aperol\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 30,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Prosecco\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 60,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Club Soda\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 60,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Orange\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qq0unfqyw2.execute-api.us-east-1.amazonaws.com/dev/drink",
+									"protocol": "https",
+									"host": [
+										"qq0unfqyw2",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "read",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "update",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "delete",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
