@@ -16,4 +16,12 @@ export class DrinkService {
       return await this.dataMapper.put(Object.assign(new Drink(), drink));
     }
 
+    /**
+    * Get a drink by its name
+    * @param name drink's name
+    */
+    public async getDrinkByName(name: string) {
+      return await this.dataMapper.get(Object.assign(new Drink, { name }));
+    }
+
 }

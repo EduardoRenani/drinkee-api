@@ -33,10 +33,10 @@
 									}
 								},
 								"url": {
-									"raw": "https://qq0unfqyw2.execute-api.us-east-1.amazonaws.com/dev/drink",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink",
 									"protocol": "https",
 									"host": [
-										"qq0unfqyw2",
+										"ufxwyzoxt7",
 										"execute-api",
 										"us-east-1",
 										"amazonaws",
@@ -56,7 +56,32 @@
 				},
 				{
 					"name": "read",
-					"item": [],
+					"item": [
+						{
+							"name": "GetDrinkByName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"Aperol%20Spritz"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},

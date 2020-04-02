@@ -44,6 +44,13 @@ functions:
           method: post
           path: drink
           cors: true
+  getDrinkByName:
+    handler: src/handlers/drink/read/getDrinkByName.handler
+    events:
+      - http:
+          method: get
+          path: drink/{name}
+          cors: true
 
 resources:
   Resources:
@@ -123,8 +130,6 @@ resources:
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
         AttributeDefinitions:
-          - AttributeName: uid
-            AttributeType: S
           - AttributeName: name
             AttributeType: S
           - AttributeName: strength
@@ -142,18 +147,10 @@ resources:
           - AttributeName: mixer
             AttributeType: S
         KeySchema:
-          - AttributeName: uid
+          - AttributeName: name
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST   
         GlobalSecondaryIndexes:
-          - IndexName: name-rating-index
-            KeySchema:
-              - AttributeName: name
-                KeyType: HASH
-              - AttributeName: rating
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
           - IndexName: style-rating-index
             KeySchema:
               - AttributeName: style
