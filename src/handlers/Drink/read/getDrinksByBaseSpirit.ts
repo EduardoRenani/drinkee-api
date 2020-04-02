@@ -7,11 +7,11 @@ import * as Logger from '../../../../lib/logger';
 export const handler: APIGatewayProxyHandler = async (event) => {
     Logger.info(event);
     try {
-        const name = event.pathParameters.name.replace("%20", " ");
+        const baseSpirit = event.pathParameters.baseSpirit.replace("%20", " ");
 
-        Logger.warn(name);
+        Logger.warn(baseSpirit);
 
-        return success(await new DrinkService().getDrinkByName(name));
+        return success(await new DrinkService().getDrinksByBaseSpirit(baseSpirit));
   
     } catch (e) {
         Logger.error(e);

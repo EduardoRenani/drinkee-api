@@ -51,6 +51,13 @@ functions:
           method: get
           path: drink/{name}
           cors: true
+  getDrinkByBaseSpirit:
+    handler: src/handlers/drink/read/getDrinksByBaseSpirit.handler
+    events:
+      - http:
+          method: get
+          path: drink/baseSpirit/{baseSpirit}
+          cors: true
 
 resources:
   Resources:

@@ -25,7 +25,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Aperol Spritz\",\n\t\"strength\": 0.04,\n\t\"style\": \"classic\",\n\t\"rating\": 4.7,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 25.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"liquor\": \"Aperol\",\n\t\"wineVermouth\": \"Prosecco\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Aperol\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 30,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Prosecco\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 60,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Club Soda\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 60,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Orange\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
+									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 3.9,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lemon\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -63,7 +63,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Tropical%20Gin",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -75,7 +75,32 @@
 									"path": [
 										"dev",
 										"drink",
-										"Aperol%20Spritz"
+										"Tropical%20Gin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDrinkByBaseSpirit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/baseSpirit/Gin",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"baseSpirit",
+										"Gin"
 									]
 								}
 							},
