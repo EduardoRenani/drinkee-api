@@ -82,12 +82,12 @@
 							"response": []
 						},
 						{
-							"name": "GetDrinkByBaseSpirit",
+							"name": "GetDrinksByAlcoholicIngredients",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/baseSpirit/Gin",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/ingredient/alcoholic",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -99,8 +99,8 @@
 									"path": [
 										"dev",
 										"drink",
-										"baseSpirit",
-										"Gin"
+										"ingredient",
+										"alcoholic"
 									]
 								}
 							},

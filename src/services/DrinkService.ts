@@ -1,3 +1,4 @@
+import { ConditionExpression } from '@aws/dynamodb-expressions';
 import { Drink } from './../models/Drink';
 import { DrinkeeDynamodbDataMapper } from './../../lib/drinkeeDynamoDataWrapper';
 
@@ -25,11 +26,41 @@ export class DrinkService {
     }
 
     /**
-    * Get a drink by its name
-    * @param name drink's name
+    * Get all drinks you can make with given alcoholic ingredients
+    * @param baseSpirit drinks with this base spirit
+    * @param liquor drinks with this liquor
+    * @param wineVermouth drinks with this wine or vermouth
+    * @param mixers drinks with this mixer
     */
-    public async getDrinksByBaseSpirit(baseSpirit: string) {
-        return await this.dataMapper.query(Drink, { baseSpirit }, { indexName: 'baseSpirit-rating-index' }); 
+    public async getDrinksByAlcoholicIngredients(baseSpirit: string, liquor: string, wineVermouth: string, mixers: string) {
+        const conditionExpression: ConditionExpression = {
+          conditions: [
+            {
+              object: baseSpirit,
+              subject: 'baseSpirit',
+              type: 'Equals',  
+            },
+            {
+              object: liquor,
+              subject: 'liquor',
+              type: 'Equals',  
+            },
+            {
+              object: wineVermouth,
+              subject: 'wineVermouth',
+              type: 'Equals',  
+            },
+            {
+              object: mixers,
+              subject: 'mixers',
+              type: 'Equals',  
+            }
+          ],
+          type: 'Or'
+        };  
+
+        return await this.dataMapper.scan(Drink, { filter: conditionExpression }) 
+
     }
 
 }
