@@ -63,7 +63,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Tropical%20Gin",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -75,7 +75,7 @@
 									"path": [
 										"dev",
 										"drink",
-										"Tropical%20Gin"
+										"Aperol%20Spritz"
 									]
 								}
 							},
@@ -85,9 +85,22 @@
 							"name": "GetDrinksByAlcoholicIngredients",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/ingredient/alcoholic",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/ingredient/alcoholic?baseSpirit=Gin&liquor=Aperol",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -101,6 +114,26 @@
 										"drink",
 										"ingredient",
 										"alcoholic"
+									],
+									"query": [
+										{
+											"key": "baseSpirit",
+											"value": "Gin"
+										},
+										{
+											"key": "liquor",
+											"value": "Aperol"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
 									]
 								}
 							},

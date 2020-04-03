@@ -63,4 +63,21 @@ export class DrinkService {
 
     }
 
+    /**
+    * update drink's rating score
+    * @param name drink's name
+    */
+    public async updateDrinkRatingScore(name: string, newRatingVote: number) {
+        const drink = await this.dataMapper.get(Object.assign(new Drink, { name }));
+        
+        const currentRatingValue = drink.rating
+        const currentDrinkNumberOfVotes = drink.numberOfRatingVotes
+        
+        drink.numberOfRatingVotes = currentDrinkNumberOfVotes + 1
+        drink.rating = ((currentRatingValue * currentDrinkNumberOfVotes) + newRatingVote) /
+                        drink.numberOfRatingVotes
+    
+        return await this.dataMapper.update(Object.assign(new Drink(), drink));
+    }
+
 }

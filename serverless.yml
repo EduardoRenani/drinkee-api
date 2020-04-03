@@ -59,6 +59,14 @@ functions:
           path: drink/ingredient/alcoholic
           cors: true
 
+  updateDrinkRatingScore:
+    handler: src/handlers/drink/update/updateDrinkRatingScore.handler
+    events:
+      - http:
+          method: put
+          path: drink/{name}/rating
+          cors: true
+
 resources:
   Resources:
     defaultRole:
