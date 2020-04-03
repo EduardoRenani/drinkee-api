@@ -145,13 +145,106 @@
 				},
 				{
 					"name": "update",
-					"item": [],
+					"item": [
+						{
+							"name": "UpdateDrinkRatingScore",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"rating\": 3.0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz/rating",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"Aperol%20Spritz",
+										"rating"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateDrink",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 4.4,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lemon\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Gin%20Tonic",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"Gin%20Tonic"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
 					"name": "delete",
-					"item": [],
+					"item": [
+						{
+							"name": "DeleteDrink",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"Aperol%20Spritz"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}

@@ -64,8 +64,18 @@ export class DrinkService {
     }
 
     /**
+    * Update an existing drink
+    * @param name unique name for getting current drink object on database
+    * @param drink updated drink object 
+    */
+    public async updateDrink(name: string, drink: Drink) {
+      return await this.dataMapper.update(Object.assign(await this.getDrinkByName(name), drink));
+    }
+
+    /**
     * update drink's rating score
     * @param name drink's name
+    * @param newRatingVote user's new rating vote
     */
     public async updateDrinkRatingScore(name: string, newRatingVote: number) {
         const drink = await this.dataMapper.get(Object.assign(new Drink, { name }));
@@ -78,6 +88,14 @@ export class DrinkService {
                         drink.numberOfRatingVotes
     
         return await this.dataMapper.update(Object.assign(new Drink(), drink));
+    }
+
+    /**
+    * Deletes a drink from database
+    * @param name unique name to identify and delete the drink
+    */
+    public async deleteDrink(name: string) {
+        return await this.dataMapper.delete(Object.assign(new Drink, { name }));
     }
 
 }

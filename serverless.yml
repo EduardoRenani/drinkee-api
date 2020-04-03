@@ -67,6 +67,22 @@ functions:
           path: drink/{name}/rating
           cors: true
 
+  update:
+    handler: src/handlers/drink/update/updateDrink.handler
+    events:
+      - http:
+          method: put
+          path: drink/{name}
+          cors: true
+
+  deleteDrink:
+    handler: src/handlers/drink/delete/deleteDrink.handler
+    events:
+      - http:
+          method: delete
+          path: drink/{name}
+          cors: true
+
 resources:
   Resources:
     defaultRole:
