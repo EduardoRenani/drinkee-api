@@ -46,6 +46,9 @@ export class Drink {
     @attribute()
     public mixer?: string;
 
+    @attribute()
+    public photoUrl?: string;
+
     @IsNotEmpty()
     @ValidateNested()
     @attribute()
