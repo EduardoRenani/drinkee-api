@@ -25,6 +25,23 @@ export class DrinkService {
         return await this.dataMapper.get(Object.assign(new Drink, { name }));
     }
 
+    /** 
+    * Get all drinks inside database
+    */
+   public async getAllDrinks() {
+      return await this.dataMapper.scan(Drink);
+   }
+
+    /** 
+    * Get N drinks sorted by rating
+    * @param numberOfDrinks top N
+    */
+    public async getTopNDrinks(numberOfDrinks: number) {
+        const allDrinks = await this.dataMapper.scan(Drink);
+        allDrinks.sort((a, b) => b.rating - a.rating); // descending
+        return allDrinks.slice(0, numberOfDrinks);
+    }
+
     /**
     * Get all drinks you can make with given alcoholic ingredients
     * @param baseSpirit drinks with this base spirit

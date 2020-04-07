@@ -47,12 +47,22 @@ export class Drink {
     public mixer?: string;
 
     @attribute()
-    public photoUrl?: string;
+    public photoUrlLarge?: string;
+
+    @attribute()
+    public photoUrlMedium?: string;
+
+    @attribute()
+    public photoUrlSmall?: string;
 
     @IsNotEmpty()
     @ValidateNested()
     @attribute()
     public ingredients: Ingredient[];
+
+    @IsNotEmpty()
+    @attribute()
+    public steps: string[];
 
     constructor() {
         this.numberOfRatingVotes = 0;

@@ -51,6 +51,20 @@ functions:
           method: get
           path: drink/{name}
           cors: true
+  getAllDrinks:
+    handler: src/handlers/drink/read/getAllDrinks.handler
+    events:
+      - http:
+          method: get
+          path: drink/all
+          cors: true
+  getTopNDrinks:
+    handler: src/handlers/drink/read/getTopNDrinks.handler
+    events:
+      - http:
+          method: get
+          path: drink/top
+          cors: true
   getDrinkByAlcoholicIngredients:
     handler: src/handlers/drink/read/getDrinksByAlcoholicIngredients.handler
     events:
@@ -58,7 +72,6 @@ functions:
           method: get
           path: drink/ingredient/alcoholic
           cors: true
-
   updateDrinkRatingScore:
     handler: src/handlers/drink/update/updateDrinkRatingScore.handler
     events:
@@ -66,7 +79,6 @@ functions:
           method: put
           path: drink/{name}/rating
           cors: true
-
   update:
     handler: src/handlers/drink/update/updateDrink.handler
     events:
@@ -74,7 +86,6 @@ functions:
           method: put
           path: drink/{name}
           cors: true
-
   deleteDrink:
     handler: src/handlers/drink/delete/deleteDrink.handler
     events:

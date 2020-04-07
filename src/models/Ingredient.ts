@@ -23,4 +23,6 @@ export class Ingredient {
     @attribute()
     public measurementUnit: string;
 
+    @attribute()
+    public color: string;
 }
