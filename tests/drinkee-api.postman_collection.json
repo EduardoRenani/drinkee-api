@@ -25,7 +25,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 3.9,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lemon\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
+									"raw": "{\n\t\"name\": \"Aperol Spritz\",\n\t\"strength\": 0.04,\n\t\"style\": \"fresh\",\n\t\"rating\": 4.3,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 25.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"liquor\": \"Aperol\",\n\t\"wineVermouth\": \"Prosecco\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Aperol\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 30,\n\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\"color\": \"orange\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Prosecco\",\n\t\t\t\"strength\": 0.11,\n\t\t\t\"measurement\": 60,\n\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\"color\": \"gold\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Club Soda\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 30,\n\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\"color\": \"gray\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Orange\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": \"1\",\n\t\t\t\"measurementUnit\": \"slice\",\n\t\t\t\"color\": \"orange\"\n\t\t}\n\t],\n\t\"steps\":\n\t[\n\t\t\"Add Ice to the Sour Glass\",\n\t\t\"Pour $0, $2 and $2 into the Sour Glass\",\n\t\t\"Stir together\",\n\t\t\"Garnish with $3 slice\"\n\t]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -138,6 +138,61 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "GetTopNDrinks",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/top/?numberOfDrinks=2",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"top",
+										""
+									],
+									"query": [
+										{
+											"key": "numberOfDrinks",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllDrinks",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/all",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"drink",
+										"all"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -187,7 +242,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 4.4,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lemon\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t]\n}",
+									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 4.4,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lime\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t],\n\t\"steps\": [\n\t\t\"fill up the Collins Glass with Ice\",\n\t\t\"Pour <0> into the Glass\",\n\t\t\"Fill up the Glass with <1>\",\n\t\t\"Stir together\",\n\t\t\"Garnish with <2> wedge\"\n\t]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -226,7 +281,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Tropical%20Gin",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -238,7 +293,7 @@
 									"path": [
 										"dev",
 										"drink",
-										"Aperol%20Spritz"
+										"Tropical%20Gin"
 									]
 								}
 							},
