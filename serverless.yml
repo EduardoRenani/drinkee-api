@@ -37,6 +37,7 @@ custom:
     drinks:  drinks
 
 functions:
+# Drink
   createDrink:
     handler: src/handlers/drink/create/createDrink.handler
     events:
@@ -93,7 +94,49 @@ functions:
           method: delete
           path: drink/{name}
           cors: true
-
+# Category
+  createCategory:
+    handler: src/handlers/category/create/createCategory.handler
+    events:
+      - http:
+          method: post
+          path: category
+          cors: true
+  getCategoryById:
+    handler: src/handlers/category/read/getCategoryById.handler
+    events:
+      - http:
+          method: get
+          path: category/{uid}
+          cors: true
+  getCategoryByName:
+    handler: src/handlers/category/read/getCategoryByName.handler
+    events:
+      - http:
+          method: get
+          path: category/name
+          cors: true
+  getAllCategories:
+    handler: src/handlers/category/read/getAllCategories.handler
+    events:
+      - http:
+          method: get
+          path: category/all
+          cors: true
+  addDrinksToCategory:
+    handler: src/handlers/category/update/addDrinksToCategory.handler
+    events:
+      - http:
+          method: put
+          path: category/{uid}/drinks
+          cors: true
+  deleteCategory:
+    handler: src/handlers/category/delete/deleteCategory.handler
+    events:
+      - http:
+          method: delete
+          path: category/{uid}
+          cors: true
 resources:
   Resources:
     defaultRole:
@@ -241,3 +284,26 @@ resources:
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
+    categories:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: "categories"
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: uid
+            AttributeType: S
+          - AttributeName: name
+            AttributeType: S
+        KeySchema:
+          - AttributeName: uid
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST   
+        GlobalSecondaryIndexes:
+          - IndexName: name-index
+            KeySchema:
+              - AttributeName: name
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+          
