@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "drink",
+			"name": "Drink",
 			"item": [
 				{
 					"name": "create",
@@ -242,7 +242,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Gin Tonic\",\n\t\"strength\": 0.05660377,\n\t\"style\": \"party hard\",\n\t\"rating\": 4.4,\n\t\"numberOfRatingVotes\": 1,\n\t\"expense\": 20.0,\n\t\"author\": \"Eduardo Renani\",\n\t\"baseSpirit\": \"Gin\",\n\t\"ingredients\" :\n\t[\n\t\t{\n\t\t\t\"name\": \"Gin\",\n\t\t\t\"strength\": 0.40,\n\t\t\t\"measurement\": 45,\n\t\t\t\"measurementUnit\": \"ml\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Tonic Water\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"can\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Lime\",\n\t\t\t\"strength\": 0.0,\n\t\t\t\"measurement\": 1,\n\t\t\t\"measurementUnit\": \"slice\"\n\t\t}\n\t],\n\t\"steps\": [\n\t\t\"fill up the Collins Glass with Ice\",\n\t\t\"Pour <0> into the Glass\",\n\t\t\"Fill up the Glass with <1>\",\n\t\t\"Stir together\",\n\t\t\"Garnish with <2> wedge\"\n\t]\n}",
+									"raw": "{\n        \"numberOfRatingVotes\": 1,\n        \"name\": \"Aperol Spritz\",\n        \"strength\": 0.04,\n        \"style\": \"fresh\",\n        \"rating\": 4.3,\n        \"author\": \"Eduardo Renani\",\n        \"liquor\": \"Aperol\",\n        \"wineVermouth\": \"Prosecco\",\n        \"ingredients\": [\n            {\n                \"name\": \"Aperol\",\n                \"strength\": 0.11,\n                \"color\": \"orange\",\n                \"measurement\": 30,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Prosecco\",\n                \"strength\": 0.11,\n                \"color\": \"gold\",\n                \"measurement\": 60,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Club Soda\",\n                \"strength\": 0,\n                \"color\": \"gray\",\n                \"measurement\": 30,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Orange\",\n                \"strength\": 0,\n                \"color\": \"orange\",\n                \"measurement\": 1,\n                \"measurementUnit\": \"slice\"\n            }\n        ],\n        \"steps\": [\n            \"Add Ice to the Sour Glass\",\n            \"Pour $0, $2 and $2 into the Sour Glass\",\n            \"Stir together\",\n            \"Garnish with <3> slice\"\n        ]\n    }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -250,7 +250,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Gin%20Tonic",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -262,7 +262,7 @@
 									"path": [
 										"dev",
 										"drink",
-										"Gin%20Tonic"
+										"Aperol%20Spritz"
 									]
 								}
 							},
@@ -294,6 +294,189 @@
 										"dev",
 										"drink",
 										"Tropical%20Gin"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "create",
+					"item": [
+						{
+							"name": "CreateCategory",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Summer\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "read",
+					"item": [
+						{
+							"name": "GetCategoryById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/babc2777-7a80-4174-8bda-115e6a1f8ec0",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"babc2777-7a80-4174-8bda-115e6a1f8ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllCategories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/all",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetCategoryByName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "AddDrinksToCategory",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{\n\t\t\"name\": \"Aperol Spritz\",\n\t\t\"strength\": 0.04,\n\t\t\"style\": \"fresh\",\n\t\t\"rating\": 4.3,\n\t\t\"numberOfRatingVotes\": 1,\n\t\t\"expense\": 25.0,\n\t\t\"author\": \"Eduardo Renani\",\n\t\t\"liquor\": \"Aperol\",\n\t\t\"wineVermouth\": \"Prosecco\",\n\t\t\"ingredients\" :\n\t\t[\n\t\t\t{\n\t\t\t\t\"name\": \"Aperol\",\n\t\t\t\t\"strength\": 0.11,\n\t\t\t\t\"measurement\": 30,\n\t\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\t\"color\": \"orange\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Prosecco\",\n\t\t\t\t\"strength\": 0.11,\n\t\t\t\t\"measurement\": 60,\n\t\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\t\"color\": \"gold\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Club Soda\",\n\t\t\t\t\"strength\": 0.0,\n\t\t\t\t\"measurement\": 30,\n\t\t\t\t\"measurementUnit\": \"ml\",\n\t\t\t\t\"color\": \"gray\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Orange\",\n\t\t\t\t\"strength\": 0.0,\n\t\t\t\t\"measurement\": 1,\n\t\t\t\t\"measurementUnit\": \"slice\",\n\t\t\t\t\"color\": \"orange\"\n\t\t\t}\n\t\t],\n\t\t\"steps\":\n\t\t[\n\t\t\t\"Add Ice to the Sour Glass\",\n\t\t\t\"Pour $0, $2 and $2 into the Sour Glass\",\n\t\t\t\"Stir together\",\n\t\t\t\"Garnish with $3 slice\"\n\t\t]\n\t}\n]\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/f734235f-ba70-402c-8f87-24b3f1bdde94/drinks",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"f734235f-ba70-402c-8f87-24b3f1bdde94",
+										"drinks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "delete",
+					"item": [
+						{
+							"name": "DeleteCategory",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/f734235f-ba70-402c-8f87-24b3f1bdde94",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"f734235f-ba70-402c-8f87-24b3f1bdde94"
 									]
 								}
 							},
