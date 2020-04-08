@@ -405,7 +405,26 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/name?name=Summer",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Summer"
+										}
+									]
 								}
 							},
 							"response": []
@@ -432,7 +451,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/f734235f-ba70-402c-8f87-24b3f1bdde94/drinks",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/babc2777-7a80-4174-8bda-115e6a1f8ec0/drinks",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -444,7 +463,7 @@
 									"path": [
 										"dev",
 										"category",
-										"f734235f-ba70-402c-8f87-24b3f1bdde94",
+										"babc2777-7a80-4174-8bda-115e6a1f8ec0",
 										"drinks"
 									]
 								}
