@@ -137,6 +137,40 @@ functions:
           method: delete
           path: category/{uid}
           cors: true
+# Ingredient
+  createIngredient:
+    handler: src/handlers/ingredient/create/createIngredient.handler
+    events:
+      - http:
+          method: post
+          path: ingredient
+          cors: true
+  getIngredientByName:
+    handler: src/handlers/ingredient/read/getIngredientByName.handler
+    events:
+      - http:
+          method: get
+          path: ingredient/{name}
+  getAllIngredients:
+    handler: src/handlers/ingredient/read/getAllIngredients.handler
+    events:
+      - http:
+          method: get
+          path: ingredient/all
+          cors: true
+  getAllAlcoholicIngredients:
+    handler: src/handlers/ingredient/read/getAllAlcoholicIngredients.handler
+    events:
+      - http:
+          method: get
+          path: ingredient/alcoholic/all
+          cors: true
+  deleteIngredient:
+    handler: src/handlers/ingredient/delete/deleteIngredient.handler
+    events:
+      - http:
+          method: delete
+          path: ingredient/{name}
 resources:
   Resources:
     defaultRole:
@@ -306,4 +340,31 @@ resources:
                 KeyType: HASH
             Projection:
               ProjectionType: ALL
-          
+    alcoholicIngredients:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: "alcoholicIngredients"
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+        AttributeDefinitions:
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: alcoholicType
+            AttributeType: S
+          - AttributeName: strength
+            AttributeType: N
+        KeySchema:
+          - AttributeName: name
+            KeyType: HASH
+          - AttributeName: strength
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+        GlobalSecondaryIndexes:
+          - IndexName: alcoholicType-strength-index
+            KeySchema:
+              - AttributeName: alcoholicType
+                KeyType: HASH
+              - AttributeName: strength
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL

@@ -56,6 +56,10 @@ export class Drink {
     public photoUrlSmall?: string;
 
     @IsNotEmpty()
+    @attribute()
+    public color: string;
+
+    @IsNotEmpty()
     @ValidateNested()
     @attribute()
     public ingredients: Ingredient[];

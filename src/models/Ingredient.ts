@@ -1,10 +1,10 @@
 import { IsNotEmpty, IsNumber, IsPositive, Max } from 'class-validator';
-import { attribute } from '@aws/dynamodb-data-mapper-annotations';
+import { attribute, hashKey, table } from '@aws/dynamodb-data-mapper-annotations';
 
+@table('alcoholicIngredients')
 export class Ingredient {
 
-    @IsNotEmpty()
-    @attribute()
+    @hashKey()
     public name: string;
 
     @IsNotEmpty()
@@ -14,15 +14,16 @@ export class Ingredient {
     @attribute()
     public strength: number;
 
+    @attribute()
+    public measurement?: number;
+
+    @attribute()
+    public measurementUnit?: string;
+    
     @IsNotEmpty()
-    @IsNumber()
-    @IsPositive()
-    @attribute()
-    public measurement: number;
-
-    @attribute()
-    public measurementUnit: string;
-
     @attribute()
     public color: string;
+
+    @attribute()
+    public alcoholicType?: string;
 }
