@@ -34,11 +34,29 @@ export class CategoryService {
     }
 
     /**
+    * Get a category by its name
+    * @param name category's name
+    */
+    public async getAllDrinksByCategoryId(uid: string) {
+        const category = await this.getCategoryById(uid)
+        return await Promise.all(
+            category.drinkReferences.map((name) => {
+                return this.dataMapper.get(Object.assign(new Drink, { name })); 
+            })
+        )
+    }
+
+
+    /**
     * Get all category from database
     */
     public async getAllCategories() {
-        return await this.dataMapper.scan(Category) 
+        const categories = await this.dataMapper.scan(Category)
+        return categories.map((category) => {
+            return { "name": category.name, "uid": category.uid }
+        })
     }
+
     /**
     * Add a list of drinks to a given category
     * @param uid category's unique id
@@ -46,8 +64,8 @@ export class CategoryService {
     */
     public async addDrinksToCategory(uid: string, drinks: Drink[]) {
         const category = await this.dataMapper.get(Object.assign(new Category, { uid }));
-        const allDrinks = [...category.drinks, ...drinks];
-        category.drinks = allDrinks;
+        const allDrinkReferences = [...category.drinkReferences, ...(drinks.map((drink) => { return drink.name }))];
+        category.drinkReferences = allDrinkReferences;
         return await this.dataMapper.put(Object.assign(new Category(), category));
     }
 

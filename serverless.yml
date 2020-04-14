@@ -116,6 +116,13 @@ functions:
           method: get
           path: category/name
           cors: true
+  getAllDrinksByCategoryId:
+    handler: src/handlers/category/read/getAllDrinksByCategoryId.handler
+    events:
+      - http:
+          method: get
+          path: category/{uid}/drinks
+          cors: true
   getAllCategories:
     handler: src/handlers/category/read/getAllCategories.handler
     events:
