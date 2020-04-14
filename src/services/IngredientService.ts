@@ -1,6 +1,7 @@
 import { ConditionExpression } from '@aws/dynamodb-expressions';
 import { Ingredient } from './../models/Ingredient';
 import { DrinkeeDynamodbDataMapper } from './../../lib/drinkeeDynamoDataWrapper';
+import * as Logger from '../../lib/logger';
 
 export class IngredientService {
     private dataMapper: DrinkeeDynamodbDataMapper;
@@ -22,6 +23,7 @@ export class IngredientService {
     * @param name ingredient's name
     */
     public async getIngredientByName(name: string) {
+        Logger.warn(name)
         return await this.dataMapper.get(Object.assign(new Ingredient, { name }));
     }
 
