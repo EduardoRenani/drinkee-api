@@ -26,4 +26,13 @@ export class Ingredient {
 
     @attribute()
     public alcoholicType?: string;
+    
+    @attribute()
+    public photoUrlLarge?: string;
+
+    @attribute()
+    public photoUrlMedium?: string;
+
+    @attribute()
+    public photoUrlSmall?: string;
 }

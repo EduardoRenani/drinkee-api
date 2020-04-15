@@ -428,6 +428,31 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "GetDrinksByCategoryId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/babc2777-7a80-4174-8bda-115e6a1f8ec0/drinks",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"babc2777-7a80-4174-8bda-115e6a1f8ec0",
+										"drinks"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -521,7 +546,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Aperol\",\n\t\"alcoholicType\": \"liquor\",\n\t\"strength\": 0.11,\n\t\"color\": \"orange\"\n}",
+									"raw": "{\n\t\"name\": \"Campari\",\n\t\"alcoholicType\": \"liquor\",\n\t\"strength\": 0.25,\n\t\"color\": \"red\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
