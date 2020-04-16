@@ -63,7 +63,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Gin%20Tonic",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -75,7 +75,7 @@
 									"path": [
 										"dev",
 										"drink",
-										"Aperol%20Spritz"
+										"Gin%20Tonic"
 									]
 								}
 							},
@@ -242,7 +242,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n        \"numberOfRatingVotes\": 1,\n        \"name\": \"Aperol Spritz\",\n        \"strength\": 0.04,\n        \"style\": \"fresh\",\n        \"rating\": 4.3,\n        \"author\": \"Eduardo Renani\",\n        \"liquor\": \"Aperol\",\n        \"wineVermouth\": \"Prosecco\",\n        \"ingredients\": [\n            {\n                \"name\": \"Aperol\",\n                \"strength\": 0.11,\n                \"color\": \"orange\",\n                \"measurement\": 30,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Prosecco\",\n                \"strength\": 0.11,\n                \"color\": \"gold\",\n                \"measurement\": 60,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Club Soda\",\n                \"strength\": 0,\n                \"color\": \"gray\",\n                \"measurement\": 30,\n                \"measurementUnit\": \"ml\"\n            },\n            {\n                \"name\": \"Orange\",\n                \"strength\": 0,\n                \"color\": \"orange\",\n                \"measurement\": 1,\n                \"measurementUnit\": \"slice\"\n            }\n        ],\n        \"steps\": [\n            \"Add Ice to the Sour Glass\",\n            \"Pour $0, $2 and $2 into the Sour Glass\",\n            \"Stir together\",\n            \"Garnish with <3> slice\"\n        ]\n    }",
+									"raw": "{\n    \"numberOfRatingVotes\": 1,\n    \"name\": \"Gin Tonic\",\n    \"strength\": 0.05660377,\n    \"style\": \"party hard\",\n    \"rating\": 4.4,\n    \"author\": \"Eduardo Renani\",\n    \"baseSpirit\": \"Gin\",\n    \"liquor\": \"Aperol\",\n    \"photoUrlLarge\": \"https://rodrigowoulddo.github.io/DrinKeeImages/ginfrizz.png\",\n    \"photoUrlMedium\": \"https://rodrigowoulddo.github.io/DrinKeeImages/ginfrizz.png\",\n    \"photoUrlSmall\": \"https://rodrigowoulddo.github.io/DrinKeeImages/ginfrizz@0.5x.png\",\n    \"color\": \"light-green\",\n    \"ingredients\": [\n        {\n            \"name\": \"Gin\",\n            \"strength\": 0.4,\n            \"measurement\": 45,\n            \"measurementUnit\": \"ml\"\n        },\n        {\n            \"name\": \"Tonic Water\",\n            \"strength\": 0,\n            \"measurement\": 1,\n            \"measurementUnit\": \"can\"\n        },\n        {\n            \"name\": \"Lime\",\n            \"strength\": 0,\n            \"measurement\": 1,\n            \"measurementUnit\": \"slice\"\n        }\n    ],\n    \"steps\": [\n        \"fill up the Collins Glass with Ice\",\n        \"Pour <0> into the Glass\",\n        \"Fill up the Glass with <1>\",\n        \"Stir together\",\n        \"Garnish with <2> wedge\"\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -250,7 +250,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Aperol%20Spritz",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/drink/Gin%20Tonic",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -262,7 +262,7 @@
 									"path": [
 										"dev",
 										"drink",
-										"Aperol%20Spritz"
+										"Gin%20Tonic"
 									]
 								}
 							},
@@ -508,7 +508,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/f734235f-ba70-402c-8f87-24b3f1bdde94",
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/babc2777-7a80-4174-8bda-115e6a1f8ec0",
 									"protocol": "https",
 									"host": [
 										"ufxwyzoxt7",
@@ -520,7 +520,37 @@
 									"path": [
 										"dev",
 										"category",
-										"f734235f-ba70-402c-8f87-24b3f1bdde94"
+										"babc2777-7a80-4174-8bda-115e6a1f8ec0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCategoryByName",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://ufxwyzoxt7.execute-api.us-east-1.amazonaws.com/dev/category/name?name=Summer",
+									"protocol": "https",
+									"host": [
+										"ufxwyzoxt7",
+										"execute-api",
+										"us-east-1",
+										"amazonaws",
+										"com"
+									],
+									"path": [
+										"dev",
+										"category",
+										"name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Summer"
+										}
 									]
 								}
 							},

@@ -6,9 +6,9 @@ import { CategoryService } from '../../../services/CategoryService';
 export const handler: APIGatewayProxyHandler = async (event) => {
     Logger.info(event);
     try {
-        const uid = event.pathParameters.uid;
+        const name = event.queryStringParameters.name.replace("%20", " ")
 
-        return success(await new CategoryService().deleteCategory(uid));
+        return success(await new CategoryService().deleteCategoryByName(name));
 
     } catch (e) {
         Logger.error(e);

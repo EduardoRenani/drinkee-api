@@ -144,6 +144,13 @@ functions:
           method: delete
           path: category/{uid}
           cors: true
+  deleteCategoryByName:
+    handler: src/handlers/category/delete/deleteCategoryByName.handler
+    events:
+      - http:
+          method: delete
+          path: category/name
+          cors: true
 # Ingredient
   createIngredient:
     handler: src/handlers/ingredient/create/createIngredient.handler

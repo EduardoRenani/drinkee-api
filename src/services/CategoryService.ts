@@ -77,4 +77,13 @@ export class CategoryService {
         return await this.dataMapper.delete(Object.assign(new Category, { uid }));
     }
 
+    /**
+    * Delete a category by its name
+    * @param name category's name
+    */
+   public async deleteCategoryByName(name: string) {
+    const uid = (await this.getCategoryByName(name)).pop().uid;
+    return await this.dataMapper.delete(Object.assign(new Category, { uid }));
+}
+
 }

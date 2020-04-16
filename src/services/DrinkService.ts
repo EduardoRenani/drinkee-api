@@ -85,8 +85,8 @@ export class DrinkService {
     * @param name unique name for getting current drink object on database
     * @param drink updated drink object 
     */
-    public async updateDrink(name: string, drink: Drink) {
-      return await this.dataMapper.update(Object.assign(await this.getDrinkByName(name), drink));
+    public async updateDrink(drink: Drink) {
+      return await this.dataMapper.put(Object.assign(new Drink(), drink));
     }
 
     /**
