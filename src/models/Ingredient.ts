@@ -25,6 +25,9 @@ export class Ingredient {
     public color: string;
 
     @attribute()
+    public origin?: string;
+
+    @attribute()
     public alcoholicType?: string;
     
     @attribute()

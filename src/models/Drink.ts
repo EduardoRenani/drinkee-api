@@ -66,7 +66,7 @@ export class Drink {
 
     @IsNotEmpty()
     @attribute()
-    public steps: string[];
+    public steps: {};
 
     constructor() {
         this.numberOfRatingVotes = 0;

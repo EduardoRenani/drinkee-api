@@ -20,16 +20,51 @@ export class DrinkService {
     /**
     * Get a drink by its name
     * @param name drink's name
+    * @param language user's default language
     */
-    public async getDrinkByName(name: string) {
-        return await this.dataMapper.get(Object.assign(new Drink, { name }));
+    public async getDrinkByName(name: string, language: string) {
+        const drink =  await this.dataMapper.get(Object.assign(new Drink, { name }));
+        let steps = {};
+        switch(language) {
+          case "pt-br":
+            steps = drink.steps["pt-br"];
+            drink.steps = steps;
+            break;
+          case "en":
+            steps = drink.steps["en"];
+            drink.steps = steps;
+            break;            
+          default:
+            steps = drink.steps["en"];
+            drink.steps = steps;
+            break;
+        }
+        return drink;
     }
 
     /** 
     * Get all drinks inside database
+    * @param language user's default language
     */
-   public async getAllDrinks() {
-      return await this.dataMapper.scan(Drink);
+   public async getAllDrinks(language: string) {
+      return await (await this.dataMapper.scan(Drink)).map((drink) => {
+        let steps = {};
+        switch(language) {
+          case "pt-br":
+            steps = drink.steps["pt-br"];
+            drink.steps = steps;
+            break;
+          case "en":
+            steps = drink.steps["en"];
+            drink.steps = steps;
+            break;            
+          default:
+            steps = drink.steps["en"];
+            drink.steps = steps;
+            break;
+        }
+        return drink;
+      });
    }
 
     /** 
