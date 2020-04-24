@@ -9,9 +9,9 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     Logger.info(event);
     try {
         const language = 
-        isNotEmpty(event.queryStringParameters.language) ? 
+        isNotEmpty(event.queryStringParameters) ? 
         event.queryStringParameters.language : 
-        null
+        ""
 
         return success(await new DrinkService().getAllDrinks(language));
   

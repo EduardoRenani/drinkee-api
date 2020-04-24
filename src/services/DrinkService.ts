@@ -35,7 +35,7 @@ export class DrinkService {
             drink.steps = steps;
             break;            
           default:
-            steps = drink.steps["en"];
+            steps = drink.steps["pt-br"];
             drink.steps = steps;
             break;
         }
@@ -59,7 +59,7 @@ export class DrinkService {
             drink.steps = steps;
             break;            
           default:
-            steps = drink.steps["en"];
+            steps = drink.steps["pt-br"];
             drink.steps = steps;
             break;
         }
@@ -71,10 +71,28 @@ export class DrinkService {
     * Get N drinks sorted by rating
     * @param numberOfDrinks top N
     */
-    public async getTopNDrinks(numberOfDrinks: number) {
+    public async getTopNDrinks(numberOfDrinks: number, language: string) {
         const allDrinks = await this.dataMapper.scan(Drink);
         allDrinks.sort((a, b) => b.rating - a.rating); // descending
-        return allDrinks.slice(0, numberOfDrinks);
+        const drinks = allDrinks.slice(0, numberOfDrinks);
+        return drinks.map((drink) => {
+          let steps = {};
+          switch(language) {
+            case "pt-br":
+              steps = drink.steps["pt-br"];
+              drink.steps = steps;
+              break;
+            case "en":
+              steps = drink.steps["en"];
+              drink.steps = steps;
+              break;            
+            default:
+              steps = drink.steps["pt-br"];
+              drink.steps = steps;
+              break;
+          }
+          return drink;
+        });
     }
 
     /**
@@ -84,7 +102,7 @@ export class DrinkService {
     * @param wineVermouth drinks with this wine or vermouth
     * @param mixers drinks with this mixer
     */
-    public async getDrinksByAlcoholicIngredients(baseSpirit: string, liquor: string, wineVermouth: string, mixers: string) {
+    public async getDrinksByAlcoholicIngredients(baseSpirit: string, liquor: string, wineVermouth: string, mixers: string, language: string) {
         const conditionExpression: ConditionExpression = {
           conditions: [
             {
@@ -111,8 +129,25 @@ export class DrinkService {
           type: 'Or'
         };  
 
-        return await this.dataMapper.scan(Drink, { filter: conditionExpression }) 
-
+        const drinks = await this.dataMapper.scan(Drink, { filter: conditionExpression }) 
+        return drinks.map((drink) => {
+          let steps = {};
+          switch(language) {
+            case "pt-br":
+              steps = drink.steps["pt-br"];
+              drink.steps = steps;
+              break;
+            case "en":
+              steps = drink.steps["en"];
+              drink.steps = steps;
+              break;            
+            default:
+              steps = drink.steps["pt-br"];
+              drink.steps = steps;
+              break;
+          }
+          return drink;
+        });
     }
 
     /**

@@ -10,9 +10,9 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     try {
         const name = event.pathParameters.name.replace("%20", " ");
         const language = 
-        isNotEmpty(event.queryStringParameters.language) ? 
+        isNotEmpty(event.queryStringParameters) ? 
         event.queryStringParameters.language : 
-        null
+        ""
 
         return success(await new DrinkService().getDrinkByName(name, language));
   

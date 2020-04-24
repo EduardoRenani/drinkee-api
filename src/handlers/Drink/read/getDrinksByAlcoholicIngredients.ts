@@ -25,9 +25,13 @@ export const handler: APIGatewayProxyHandler = async (event) => {
             isNotEmpty(event.queryStringParameters.mixers) ?
             event.queryStringParameters.mixers.replace("%20", " ") :
             null
+        const language =
+            isNotEmpty(event.queryStringParameters.language) ?
+            event.queryStringParameters.language :
+            ""
 
         return success(await new DrinkService()
-            .getDrinksByAlcoholicIngredients(baseSpirit, liquor, wineVermouth, mixers)
+            .getDrinksByAlcoholicIngredients(baseSpirit, liquor, wineVermouth, mixers, language)
         );
   
     } catch (e) {

@@ -37,13 +37,31 @@ export class CategoryService {
     * Get a category by its name
     * @param name category's name
     */
-    public async getAllDrinksByCategoryId(uid: string) {
+    public async getAllDrinksByCategoryId(uid: string, language: string) {
         const category = await this.getCategoryById(uid)
-        return await Promise.all(
+        const drinks = await Promise.all(
             category.drinkReferences.map((name) => {
                 return this.dataMapper.get(Object.assign(new Drink, { name })); 
             })
         )
+        return drinks.map((drink) => {
+            let steps = {};
+            switch(language) {
+              case "pt-br":
+                steps = drink.steps["pt-br"];
+                drink.steps = steps;
+                break;
+              case "en":
+                steps = drink.steps["en"];
+                drink.steps = steps;
+                break;            
+              default:
+                steps = drink.steps["pt-br"];
+                drink.steps = steps;
+                break;
+            }
+            return drink;
+          });
     }
 
 
