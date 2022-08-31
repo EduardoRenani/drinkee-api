@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "source-map-support": "^0.5.10",
-    "moment-timezone": "^0.5.25"
+    "moment-timezone": "^0.5.35"
   },
   "devDependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
